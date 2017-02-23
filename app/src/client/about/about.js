@@ -4,8 +4,9 @@
     angular.module('fgt.about', [])
 
         .controller('AboutController', [
-            function() {
-                
+            '$scope',
+            function($scope) {
+                this.loadTab = $scope.index.loadTab;
             }
         ]);
 

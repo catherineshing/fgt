@@ -8,20 +8,27 @@
                 <div class="form-group">
                     <div class="col-sm-3"><label>Address:</label></div>
                     <div class="col-sm-9">
-                        <div ng-bind="info.zh.address.line1"></div>
                         <div ng-bind="info.en.address.line1"></div>
-                        <div>{{info.en.address.country}}, {{info.en.address.region}}, {{info.en.address.locality}}</div>
                         <div ng-bind="info.en.address.line2"></div>
-                        <div>兰景北路</div>
+                        <div ng-bind="info.en.address.district"></div>
+                        <div>{{info.en.address.locality}}, {{info.en.address.region}}, {{info.en.address.country}}</div>
+                        <div class="ch-address">{{info.zh.address.locality}}{{info.zh.address.district}}{{info.zh.address.line1}}</div>
+                        <div>粤ICP备14037081号</div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-3"><label>Phone:</label></div>
-                    <div class="col-sm-9" ng-bind="info.en.phone"></div>
+                    <div class="col-sm-9">
+                        <div ng-bind="info.en.phone"></div>
+                        <div class="ch-phone" ng-bind="info.zh.phone"></div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-3"><label>Fax:</label></div>
-                    <div class="col-sm-9" ng-bind="info.en.fax"></div>
+                    <div class="col-sm-9">
+                        <div ng-bind="info.en.fax"></div>
+                        <div class="ch-phone" ng-bind="info.zh.fax"></div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-3"><label>Email:</label></div>

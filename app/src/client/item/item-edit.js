@@ -16,7 +16,8 @@
             'FgtService',
             'Upload',
             function(_, $modalInstance, $scope, FgtConstant, FgtService, Upload) {
-                var that = this;
+                var that = this,
+                    deletedImages = [];
 
                 this.item = $scope.item;
                 this.categories = FgtConstant.Categories;
@@ -56,21 +57,15 @@
                 };
 
                 this.deleteImage = function(index, image) {
-                    FgtService.deleteImage(image)
-                        .then(function() {
-                            that.item.images.splice(index, 1);
-                        });
+                    deletedImages.push(image);
+                    that.item.images.splice(index, 1);
                 };
 
-                this.cancel = function() {
-                    _.forEach(that.item.images, function(image) {
-                        FgtService.deleteImage(image);
+                this.saveItem = function() {
+                    _.forEach(deletedImages, function(deletedImage) {
+                        FgtService.deleteImage(deletedImage);
                     });
 
-                    $modalInstance.dismiss();
-                };
-
-                this.save = function() {
                     FgtService.saveItem(that.item)
                         .then(function(result) {
                             $modalInstance.close(result);

@@ -91,40 +91,42 @@ function saveItem(item) {
     var deferred = Q.defer(),
         items = JSON.parse(fs.readFileSync(itemsFile, 'utf8')),
         baseFilename = '/images/items/' + item.id,
-        filename,
-        extension,
-        source,
-        destination,
         itemIndex,
-        existingImages;
+        fileIndex,
+        extension,
+        filename,
+        source,
+        destination;
 
     _.forEach(items, function(existingItem, index) {
         if (item.id === existingItem.id) {
             itemIndex = index;
-            existingImages = existingItem.images;
             return;
         }
     });
 
     _.forEach(item.images, function(image, index) {
         if (_.includes(image, '/tmp/')) {
+            fileIndex = index + 1;
             extension = image.split('.').pop();
-            filename = baseFilename + '-' + (index + 1) + '.' + extension;
+            filename = baseFilename + '-' + (fileIndex) + '.' + extension;
+
             source = __dirname + image;
             destination = __dirname + filename;
+
+            while (fs.existsSync(destination)) {
+                filename = baseFilename + '-' + (++fileIndex) + '.' + extension;
+                destination = __dirname + filename;
+            }
 
             moveFile(source, destination, function() {});
 
             item.images[index] = filename;
-        } else {
-            _.pull(existingImages, image);
         }
     });
 
-    _.forEach(existingImages, function(existingImage) {
-        if (!_.includes(item.images, existingImage)) {
-            fs.unlinkSync(__dirname + existingImage);
-        }
+    _.remove(item.features, function(feature) {
+        return _.isEmpty(feature);
     });
 
     if (_.isUndefined(itemIndex)) {
@@ -184,17 +186,14 @@ function saveImage(file) {
 }
 
 function deleteImage(file) {
+    console.log('BEGIN deleteImage');
+
     var deferred = Q.defer();
 
-    if (_.includes(file, '/tmp/')) {
-        console.log('BEGIN deleteImage');
-
-        fs.unlinkSync(__dirname + file);
-
-        console.log('END deleteImage RESOLVED');
-    }
+    fs.unlinkSync(__dirname + file);
 
     deferred.resolve();
+    console.log('END deleteImage RESOLVED');
 
     return deferred.promise;
 }

@@ -1,5 +1,4 @@
 .fgt {
-  /* About */
   /* Contact */
   /* Home */
   /* Login */
@@ -21,6 +20,12 @@
   padding-top: 25px;
   padding-bottom: 25px;
 }
+.fgt .contact .ch-address {
+  padding-top: 10px;
+}
+.fgt .contact .ch-phone {
+  padding-left: 22px;
+}
 .fgt .contact .map iframe {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -39,14 +44,21 @@
 .fgt .login .filter .btn {
   margin-right: 10px;
 }
-.fgt .products .nav-pills > li.active > a {
+.fgt .products .nav-pills > li.active > a,
+.fgt .products .dropdown-menu > li.active > a {
   background-color: #537a3a;
 }
-.fgt .products .nav-pills > li.active > a .text-muted {
+.fgt .products .nav-pills > li.active > a .text-muted,
+.fgt .products .dropdown-menu > li.active > a .text-muted {
   color: #999;
 }
-.fgt .products .nav-pills > li {
+.fgt .products .nav-pills > li,
+.fgt .products .dropdown-menu > li {
   cursor: pointer;
+}
+.fgt .products .dropdown {
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 .fgt .products .preview {
   height: 220px;
@@ -60,9 +72,6 @@
 }
 .fgt .products .preview .caption {
   padding: 3px 9px;
-}
-body {
-  padding: 20px;
 }
 /* Item */
 .item .main {
@@ -90,9 +99,15 @@ body {
 .item .features {
   margin-left: -25px;
 }
+.item.view .images {
+  margin-bottom: 15px;
+}
 .item.edit .preview {
   cursor: default;
   position: relative;
+}
+.item.edit .feature {
+  margin-bottom: 10px;
 }
 .item.edit .uploader {
   border: 1px dashed #ccc;
@@ -123,4 +138,7 @@ body {
   top: 6px;
   right: 6px;
   color: #fff;
+}
+body {
+  padding: 20px;
 }

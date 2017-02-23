@@ -45,10 +45,11 @@
                         modalScope = $rootScope.$new();
 
                     modalScope.title = 'Add Item';
-                    modalScope.item = {
-                        images: []
-                    };
                     modalScope.isNew = true;
+                    modalScope.item = {
+                        images: [],
+                        features: ['']
+                    };
 
                     modalInstance = $modal.open({
                         templateUrl: '/src/client/item/item-edit.tpl.html',
@@ -71,8 +72,8 @@
                         modalScope = $rootScope.$new();
 
                     modalScope.title = 'Edit Item';
-                    modalScope.item = _.clone(item, true);
                     modalScope.isNew = false;
+                    modalScope.item = _.clone(item, true);
 
                     modalInstance = $modal.open({
                         templateUrl: '/src/client/item/item-edit.tpl.html',

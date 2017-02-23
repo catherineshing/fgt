@@ -17,7 +17,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="/rsrc/fonts/styles.css">
         <link rel="stylesheet" href="/src/client/index.css">
     </head>
     <body>
@@ -30,11 +29,12 @@
                     <div class="col-sm-6">
                         <div class="hidden-xs text-right info">
                             <div class="phone" itemprop="telephone"><%= info.en.phone %></div>
+                            <div><%= info.zh.name %></div>
+                            <div><%= info.en.name %></div>
                             <div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                                 <div itemprop="streetAddress"><%= info.en.address.line1 %></div>
-                                <!-- line2 -->
-                                <span itemprop="addressRegion"><%= info.en.address.region %></span>,
-                                <span itemprop="addressLocality"><%= info.en.address.locality %></span>
+                                <span itemprop="addressLocality"><%= info.en.address.locality %></span>,
+                                <span itemprop="addressRegion"><%= info.en.address.region %></span>
                                 <meta itemprop="addressCountry" content="CN"></span>
                             </div>
                         </div>

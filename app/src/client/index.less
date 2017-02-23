@@ -21,14 +21,16 @@
     }
 
 
-    /* About */
-    .about {
-        
-    }
-
-
     /* Contact */
     .contact {
+        .ch-address {
+            padding-top: 10px;
+        }
+
+        .ch-phone {
+            padding-left: 22px;
+        }
+
         .map {
             iframe {
                 border: 1px solid #ddd;
@@ -69,7 +71,8 @@
 
     /* Products */
     .products {
-        .nav-pills > li.active > a {
+        .nav-pills > li.active > a,
+        .dropdown-menu > li.active > a {
             background-color: rgb(83, 122, 58);
 
             .text-muted {
@@ -77,8 +80,14 @@
             }
         }
 
-        .nav-pills > li {
+        .nav-pills > li,
+        .dropdown-menu > li {
             cursor: pointer;
+        }
+
+        .dropdown {
+            margin-top: -10px;
+            margin-bottom: 10px;
         }
 
         .preview {
@@ -98,11 +107,6 @@
         }
     }
 }
-
-body {
-    padding: 20px;
-}
-
 
 /* Item */
 .item {
@@ -137,10 +141,20 @@ body {
         margin-left: -25px;
     }
 
+    &.view {
+        .images {
+            margin-bottom: 15px;
+        }
+    }
+
     &.edit {
         .preview {
             cursor: default;
             position: relative;
+        }
+
+        .feature {
+            margin-bottom: 10px;
         }
 
         .uploader {
@@ -180,4 +194,8 @@ body {
             }
         }
     }
+}
+
+body {
+    padding: 20px;
 }
