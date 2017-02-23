@@ -1,0 +1,126 @@
+.fgt {
+  /* About */
+  /* Contact */
+  /* Home */
+  /* Login */
+  /* Products */
+}
+.fgt .header {
+  padding-bottom: 15px;
+}
+.fgt .header a {
+  text-decoration: none;
+}
+.fgt .header img {
+  max-height: 90px;
+}
+.fgt .header .info {
+  color: #537a3a;
+}
+.fgt .nav-bar {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.fgt .contact .map iframe {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+}
+.fgt .home .carousel-img {
+  margin: auto;
+}
+.fgt .home .carousel-control,
+.fgt .home .caption-text {
+  cursor: pointer;
+}
+.fgt .home .carousel-indicators li {
+  margin: 2px;
+}
+.fgt .login .filter .btn {
+  margin-right: 10px;
+}
+.fgt .products .nav-pills > li.active > a {
+  background-color: #537a3a;
+}
+.fgt .products .nav-pills > li.active > a .text-muted {
+  color: #999;
+}
+.fgt .products .nav-pills > li {
+  cursor: pointer;
+}
+.fgt .products .preview {
+  height: 220px;
+  cursor: pointer;
+}
+.fgt .products .preview .image {
+  height: 170px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.fgt .products .preview .caption {
+  padding: 3px 9px;
+}
+body {
+  padding: 20px;
+}
+/* Item */
+.item .main {
+  margin-bottom: 0;
+}
+.item .preview {
+  cursor: pointer;
+  width: 25%;
+  height: 75px;
+  display: inline-block;
+  margin-bottom: -5px;
+}
+.item .preview .image {
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.item .preview.active {
+  border-color: #537a3a;
+}
+.item .stock {
+  margin-top: 0;
+}
+.item .features {
+  margin-left: -25px;
+}
+.item.edit .preview {
+  cursor: default;
+  position: relative;
+}
+.item.edit .uploader {
+  border: 1px dashed #ccc;
+}
+.item.edit .uploader .drop-area {
+  padding: 10px;
+  min-height: 100px;
+}
+.item.edit .uploader .header {
+  padding-bottom: 12px;
+}
+.item.edit .uploader .header i {
+  top: 2px;
+  padding-right: 2px;
+  font-size: 18px;
+}
+.item.edit .uploader .header .btn-link {
+  padding-left: 0;
+  margin-top: -2px;
+}
+.item.edit .uploader .error-message {
+  margin-bottom: 15px;
+  white-space: pre;
+}
+.item.edit .uploader .glyphicon-remove {
+  cursor: pointer;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: #fff;
+}

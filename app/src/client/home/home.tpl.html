@@ -1,0 +1,7 @@
+<div class="home" ng-controller="HomeController as home">
+    <div carousel interval="5000">
+        <slide ng-repeat="item in home.items">
+            <img class="carousel-img" ng-src="{{item.images[0]}}" alt="{{item.id}}" ui-sref="item({id: item.id})">
+        </slide>
+    </div>
+</div>

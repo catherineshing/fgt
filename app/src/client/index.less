@@ -1,0 +1,183 @@
+.fgt {
+    .header {
+        padding-bottom: 15px;
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            max-height: 90px;
+        }
+
+        .info {
+            color: rgb(83, 122, 58);
+        }
+    }
+
+    .nav-bar {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+
+    /* About */
+    .about {
+        
+    }
+
+
+    /* Contact */
+    .contact {
+        .map {
+            iframe {
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 4px;
+            }
+        }
+    }
+
+
+    /* Home */
+    .home {
+        .carousel-img {
+            margin: auto;
+        }
+
+        .carousel-control, .caption-text {
+            cursor: pointer;
+        }
+
+        .carousel-indicators {
+            li {
+                margin: 2px;
+            }
+        }
+    }
+
+
+    /* Login */
+    .login {
+        .filter {
+            .btn {
+                margin-right: 10px;
+            }
+        }
+    }
+
+
+    /* Products */
+    .products {
+        .nav-pills > li.active > a {
+            background-color: rgb(83, 122, 58);
+
+            .text-muted {
+                color: #999;
+            }
+        }
+
+        .nav-pills > li {
+            cursor: pointer;
+        }
+
+        .preview {
+            height: 220px;
+            cursor: pointer;
+
+            .image {
+                height: 170px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+
+            .caption {
+                padding: 3px 9px;
+            }
+        }
+    }
+}
+
+body {
+    padding: 20px;
+}
+
+
+/* Item */
+.item {
+    .main {
+        margin-bottom: 0;
+    }
+
+    .preview {
+        cursor: pointer;
+        width: 25%;
+        height: 75px;
+        display: inline-block;
+        margin-bottom: -5px;
+
+        .image {
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        &.active {
+            border-color: rgb(83, 122, 58);
+        }
+    }
+
+    .stock {
+        margin-top: 0;
+    }
+
+    .features {
+        margin-left: -25px;
+    }
+
+    &.edit {
+        .preview {
+            cursor: default;
+            position: relative;
+        }
+
+        .uploader {
+            border: 1px dashed #ccc;
+
+            .drop-area {
+                padding: 10px;
+                min-height: 100px;
+            }
+
+            .header {
+                padding-bottom: 12px;
+
+                i {
+                    top: 2px;
+                    padding-right: 2px;
+                    font-size: 18px;
+                }
+
+                .btn-link {
+                    padding-left: 0;
+                    margin-top: -2px;
+                }
+            }
+
+            .error-message {
+                margin-bottom: 15px;
+                white-space: pre;
+            }
+
+            .glyphicon-remove {
+                cursor: pointer;
+                position: absolute;
+                top: 6px;
+                right: 6px;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+<div class="item" ng-controller="ItemViewController as item">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="thumbnail main">
+                <img ng-src="{{item.image}}" alt="{{item.item.id}}">
+            </div>
+            <div class="images">
+                <div class="thumbnail preview" ng-class="{active: image === item.image}" ng-repeat="image in item.item.images track by $index">
+                    <div class="image" style="background-image:url('{{image}}');" ng-click="item.image = image"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h3 class="stock" ng-bind="item.item.id"></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-3"><label>Category:</label></div>
+                <div class="col-xs-8 col-sm-9" ng-bind="item.item.category"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-3"><label>Material:</label></div>
+                <div class="col-xs-8 col-sm-9" ng-bind="item.item.material"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4 col-sm-3"><label>Features:</label></div>
+                <div class="col-xs-8 col-sm-9">
+                    <ul class="features">
+                        <li ng-repeat="feature in item.item.features" ng-bind="feature"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="pager">
+        <li class="previous" ng-show="item.item.previous"><a ui-sref="item({id: item.item.previous})">&larr; Previous</a></li>
+        <li class="next" ng-show="item.item.next"><a ui-sref="item({id: item.item.next})">&rarr; Next</a></li>
+    </ul>
+</div>

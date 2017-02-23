@@ -1,0 +1,22 @@
+<div class="products" ng-controller="ProductsController as products">
+    <div class="row">
+        <div class="col-xs-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li ng-class="{active: !products.category}"><a ng-click="products.getCategory()">All <small class="text-muted">({{products.allItems.length}})</small></a></li>
+                <li ng-class="{active: category === products.category}" ng-repeat="category in products.categories"><a ng-click="products.getCategory(category)">{{category}} <small class="text-muted">({{products.getCategoryCount(category)}})</small></a></li>
+            </ul>
+        </div>
+        <div class="col-xs-10">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 col-lg-2" ng-repeat="item in products.items">
+                    <div class="thumbnail preview" ui-sref="item({id: item.id, category: products.category})">
+                        <div class="image" style="background-image:url('{{item.images[0]}}');"></div>
+                        <div class="caption">
+                            <h4>{{item.id}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="contact" ng-controller="ContactController as contact">
+    <div class="row">
+        <div class="col-sm-6 contact-info">
+            <div class="form form-horizontal">
+                <div class="form-group">
+                    <div class="col-xs-12" ng-bind="info.en.description"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3"><label>Address:</label></div>
+                    <div class="col-sm-9">
+                        <div ng-bind="info.zh.address.line1"></div>
+                        <div ng-bind="info.en.address.line1"></div>
+                        <div>{{info.en.address.country}}, {{info.en.address.region}}, {{info.en.address.locality}}</div>
+                        <div ng-bind="info.en.address.line2"></div>
+                        <div>兰景北路</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3"><label>Phone:</label></div>
+                    <div class="col-sm-9" ng-bind="info.en.phone"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3"><label>Fax:</label></div>
+                    <div class="col-sm-9" ng-bind="info.en.fax"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3"><label>Email:</label></div>
+                    <div class="col-sm-9">
+                        <a ng-href="mailto:{{info.email}}" ng-bind="info.email"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 text-center map">
+            <iframe ng-src="{{contact.mapUrl}}" width="100%" height="400" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

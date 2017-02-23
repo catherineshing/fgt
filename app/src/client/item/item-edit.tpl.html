@@ -1,0 +1,90 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{title}}<button class="close" ng-click="itemEdit.cancel()">&times;</button></h4>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="uploader">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="drop-area" ngf-drop ngf-change="itemEdit.uploadFiles($files, $invalidFiles)" ngf-accept="'{{itemEdit.options.accept}}'" ngf-pattern="'{{itemEdit.options.accept}}'" ngf-multiple="{{itemEdit.options.multiple}}" ngf-allow-dir="{{itemEdit.options.allowDir}}" ngf-resize="{{itemEdit.options.ngf-resize}}">
+                            <div class="header text-muted text-center">
+                                <i class="glyphicon glyphicon-cloud-upload"></i>
+                                <span>Drop files to attach, or </span>
+                                <span class="btn btn-link" ngf-select ngf-change="itemEdit.uploadFiles($files, $invalidFiles)" ngf-accept="'{{itemEdit.options.accept}}'" ngf-pattern="'{{itemEdit.options.accept}}'" ngf-multiple="{{itemEdit.options.multiple}}" ngf-resize="{{itemEdit.options.resize}}">browse</span>
+                            </div>
+                            <div class="error-message text-danger" ng-bind="itemEdit.uploadError" ng-if="itemEdit.uploadError"></div>
+                            <div class="row" ng-if="itemEdit.item.images.length">
+                                <div class="col-xs-12">
+                                    <div class="thumbnail main">
+                                        <img ng-src="{{itemEdit.item.images[0]}}" alt="{{itemEdit.item.id}}">
+                                    </div>
+                                    <div class="images">
+                                        <div class="thumbnail preview" ng-repeat="image in itemEdit.item.images track by $index">
+                                            <i class="glyphicon glyphicon-remove" tooltip="Delete" ng-click="itemEdit.deleteImage($index, image)"></i>
+                                            <div class="image" style="background-image:url('{{image}}');"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <form name="form" class="form-horizontal" novalidate>
+                <div class="col-xs-12">
+                    <div class="form-group" ng-class="{'has-error': !form.id.$pristine && form.id.$invalid}">
+                        <label class="col-sm-3">Item #</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="id" class="form-control" ng-disabled="!isNew" ng-model="itemEdit.item.id" required>
+                            <div class="validation-message" ng-show="!form.id.$pristine && form.id.$invalid">
+                                <span class="help-block" ng-show="form.id.$error.required">Required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': !form.category.$pristine && form.category.$invalid}">
+                        <label class="col-sm-3">Category</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="category" ng-model="itemEdit.item.category" ng-blur="form.category.$pristine = false">
+                                <option value="{{category}}" ng-repeat="category in itemEdit.categories">{{category}}</option>
+                            </select>
+                            <div class="validation-message" ng-show="!form.category.$pristine && form.category.$invalid">
+                                <span class="help-block" ng-show="form.category.$error.required">Required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': !form.material.$pristine && form.material.$invalid}">
+                        <label class="col-sm-3">Material</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="material" ng-model="itemEdit.item.material" ng-blur="form.material.$pristine = false">
+                                <option value="{{material}}" ng-repeat="material in itemEdit.materials">{{material}}</option>
+                            </select>
+                            <div class="validation-message" ng-show="!form.material.$pristine && form.material.$invalid">
+                                <span class="help-block" ng-show="form.material.$error.required">Required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': !form.certification.$pristine && form.certification.$invalid}">
+                        <label class="col-sm-3">Features</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="certification" ng-model="itemEdit.item.certification" ng-blur="form.certification.$pristine = false">
+                                <option value="{{key}}" ng-repeat="(key, value) in itemEdit.certifications">{{value}}</option>
+                            </select>
+                            <div class="validation-message" ng-show="!form.certification.$pristine && form.certification.$invalid">
+                                <span class="help-block" ng-show="form.certification.$error.required">Required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-link" ng-click="itemEdit.cancel()">Cancel</button>
+    <button type="submit" class="btn btn-primary" ng-click="itemEdit.save()" ng-disabled="form.$invalid">Save</button>
+</div>

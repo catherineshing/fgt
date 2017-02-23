@@ -1,0 +1,20 @@
+{
+    "name": "ctc",
+    "version": "0.0.0",
+    "homepage": "https://github.com/catherineshing/ctc",
+    "authors": [
+        "catherine shing"
+    ],
+    "description": "ctc jewelers website",
+    "dependencies": {
+        "angular": "1.4.9",
+        "angular-cookies": "1.4.9",
+        "angular-resource": "1.4.9",
+        "angular-smart-table": "2.1.8",
+        "angular-ui-bootstrap-bower": "0.13.3",
+        "angular-ui-router": "0.3.2",
+        "bootstrap": "3.3.6",
+        "lodash": "3.10.1",
+        "ng-file-upload": "^12.0.4"
+    }
+}

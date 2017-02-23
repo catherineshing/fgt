@@ -1,0 +1,57 @@
+<div class="login" ng-controller="LoginController as login">
+    <form class="form-horizontal" name="loginForm" ng-if="!login.isAuthenticated">
+        <div class="form-group" ng-class="{'has-error': login.loginError}">
+            <label class="col-sm-2 control-label" for="password">Password</label>
+            <div class="col-sm-4">
+                <input class="form-control" name="password" type="password" placeholder="Password" ng-model="login.password" autofocus required>
+                <div class="validation-message" ng-show="!loginForm.password.$pristine && login.loginError">
+                    <span class="help-block">Password is invalid</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button type="submit" class="btn btn-primary" ng-click="login.login()" ng-disabled="loginForm.$invalid">Submit</button>
+            </div>
+        </div>
+    </form>
+
+    <div ng-if="login.isAuthenticated">
+        <table class="table table-striped" st-table="login.displayedItems" st-safe-src="login.items">
+        <thead>
+            <tr class="filter">
+                <th colspan="9">
+                    <span class="form-group pull-right">
+                        <input type="search" class="form-control" st-search st-delay="100" placeholder="Search"/>
+                    </span>
+                    <button type="button" class="btn btn-default pull-right" ng-click="login.addItem()"><i class="glyphicon glyphicon-plus"></i> Add Item</button>
+                </th>
+            </tr>
+            <tr class="header">
+                <th st-sort="id" st-skip-natural="true">Item #</th>
+                <th st-sort="category" st-skip-natural="true">Category</th>
+                <th st-sort="material" st-skip-natural="true">Material</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in login.displayedItems">
+                <td ng-bind="item.id"></td>
+                <td ng-bind="item.category"></td>
+                <td ng-bind="item.material"></td>
+                <td class="text-right">
+                    <button type="button" class="btn btn-sm btn-default" tooltip="Edit" ng-click="login.editItem($index, item)"><i class="glyphicon glyphicon-pencil"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger" tooltip="Delete" ng-click="login.deleteItem($index, item)"><i class="glyphicon glyphicon-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="9" class="text-center">
+                    <div st-pagination="" st-items-by-page="50"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+</div>

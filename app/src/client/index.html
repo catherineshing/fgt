@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="fgt" class="no-js" itemscope itemtype="http://schema.org/HomeGoodsStore">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <base href="/" />
+
+        <title itemprop="name"><%= info.en.name %></title>
+        <link rel="icon" href="/rsrc/images/fgt-icon.png">
+
+        <meta name="url" itemprop="url" content="<%= info.url %>">
+        <meta name="image" itemprop="image" content="<%= info.url %><%= info.logo %>">
+        <meta name="priceRange" itemprop="priceRange" content="$">
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/rsrc/fonts/styles.css">
+        <link rel="stylesheet" href="/src/client/index.css">
+    </head>
+    <body>
+        <div class="fgt" ng-controller="IndexController as index" ng-init="index.init('<%= infoStr %>')">
+            <div class="header">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a href="home" ng-click="index.loadTab({path: 'home'})"><img ng-src="{{info.logo}}" class="name" alt="{{info.en.name}}"></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="hidden-xs text-right info">
+                            <div class="phone" itemprop="telephone"><%= info.en.phone %></div>
+                            <div class="address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                <div itemprop="streetAddress"><%= info.en.address.line1 %></div>
+                                <!-- line2 -->
+                                <span itemprop="addressRegion"><%= info.en.address.region %></span>,
+                                <span itemprop="addressLocality"><%= info.en.address.locality %></span>
+                                <meta itemprop="addressCountry" content="CN"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-bar">
+                <ul class="nav nav-tabs" role="navigation">
+                    <li role="presentation" ng-class="{active: index.tab === tab.path}" ng-repeat="tab in index.tabs">
+                        <a href="{{tab.path}}" ng-click="index.loadTab(tab)">
+                            <div class="hidden-xs" ng-bind="tab.name"></div>
+                            <div class="visible-xs"><span class="{{tab.icon}}"></span></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div ui-view=""></div>
+        </div>
+
+        <script type="text/javascript" src="/lib/angular/angular.js"></script>
+        <script type="text/javascript" src="/lib/angular-cookies/angular-cookies.min.js"></script>
+        <script type="text/javascript" src="/lib/angular-resource/angular-resource.min.js"></script>
+        <script type="text/javascript" src="/lib/angular-smart-table/dist/smart-table.min.js"></script>
+        <script type="text/javascript" src="/lib/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="/lib/lodash/lodash.min.js"></script>
+        <script type="text/javascript" src="/lib/ng-file-upload/ng-file-upload-all.min.js"></script>
+
+        <script type="text/javascript" src="/src/client/index.js"></script>
+        <script type="text/javascript" src="/src/client/fgt-resource.js"></script>
+        <script type="text/javascript" src="/src/client/fgt-service.js"></script>
+        <script type="text/javascript" src="/src/client/about/about.js"></script>
+        <script type="text/javascript" src="/src/client/contact/contact.js"></script>
+        <script type="text/javascript" src="/src/client/home/home.js"></script>
+        <script type="text/javascript" src="/src/client/item/item-edit.js"></script>
+        <script type="text/javascript" src="/src/client/item/item-view.js"></script>
+        <script type="text/javascript" src="/src/client/login/login.js"></script>
+        <script type="text/javascript" src="/src/client/products/products.js"></script>
+    </body>
+</html>

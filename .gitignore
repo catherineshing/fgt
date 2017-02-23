@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+app/.DS_Store
+app/lib
+notes.txt
+app/src/server/info.json
+app/src/server/items.json

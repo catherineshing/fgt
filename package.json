@@ -1,0 +1,17 @@
+{
+    "name": "ctc",
+    "version": "0.0.0",
+    "description": "ctc jewelers website",
+    "main": "app/app.js",
+    "author": "catherine shing",
+    "dependencies": {
+        "body-parser": "1.15.0",
+        "connect-multiparty": "2.0.0",
+        "consolidate": "0.14.0",
+        "ejs": "2.4.1",
+        "express": "4.13.4",
+        "lodash": "3.10.1",
+        "nodemon": "1.11.0",
+        "q": "1.4.1"
+    }
+}
