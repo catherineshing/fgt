@@ -4,6 +4,7 @@
     angular.module('fgt.item-edit', [
         'ngFileUpload',
         'ui.bootstrap',
+        'ui.sortable',
         'fgt.fgt-resource',
         'fgt.fgt-service'
     ])

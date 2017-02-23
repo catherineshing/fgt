@@ -103,7 +103,7 @@
   margin-bottom: 15px;
 }
 .item.edit .preview {
-  cursor: default;
+  cursor: move;
   position: relative;
 }
 .item.edit .feature {

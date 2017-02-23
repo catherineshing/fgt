@@ -20,7 +20,7 @@
                                     <div class="thumbnail main">
                                         <img ng-src="{{itemEdit.item.images[0]}}" alt="{{itemEdit.item.id}}">
                                     </div>
-                                    <div class="images">
+                                    <div ui-sortable class="images" ng-model="itemEdit.item.images" tooltip="Drag images to reorder">
                                         <div class="thumbnail preview" ng-repeat="image in itemEdit.item.images track by $index">
                                             <i class="glyphicon glyphicon-remove" tooltip="Delete" ng-click="itemEdit.deleteImage($index, image)"></i>
                                             <div class="image" style="background-image:url('{{image}}');"></div>

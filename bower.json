@@ -13,6 +13,7 @@
         "angular-smart-table": "2.1.8",
         "angular-ui-bootstrap-bower": "0.13.3",
         "angular-ui-router": "0.3.2",
+        "angular-ui-sortable": "0.13.4",
         "bootstrap": "3.3.6",
         "lodash": "3.10.1",
         "ng-file-upload": "^12.0.4"
