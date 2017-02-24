@@ -113,6 +113,9 @@
 .item.edit .uploader {
   border: 1px dashed #ccc;
 }
+.item.edit .uploader.danger {
+  border-color: #a94442;
+}
 .item.edit .uploader .drop-area {
   padding: 10px;
   min-height: 100px;
@@ -139,6 +142,9 @@
   top: 6px;
   right: 6px;
   color: #fff;
+}
+.item.edit .uploader-error {
+  color: #a94442;
 }
 body {
   padding: 20px;

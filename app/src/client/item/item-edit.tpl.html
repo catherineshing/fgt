@@ -5,7 +5,7 @@
 <div class="modal-body">
     <div class="row">
         <div class="col-sm-6">
-            <div class="uploader">
+            <div class="uploader" ng-class="{danger: itemEdit.uploader.$invalid}">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="drop-area" ngf-drop ngf-change="itemEdit.uploadFiles($files, $invalidFiles)" ngf-accept="'{{itemEdit.options.accept}}'" ngf-pattern="'{{itemEdit.options.accept}}'" ngf-multiple="{{itemEdit.options.multiple}}" ngf-allow-dir="{{itemEdit.options.allowDir}}" ngf-resize="{{itemEdit.options.ngf-resize}}">
@@ -31,6 +31,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="validation-message text-center" ng-show="itemEdit.uploader.$invalid">
+                <span class="help-block uploader-error" ng-show="!itemEdit.item.images.length">Required</span>
             </div>
         </div>
         <div class="col-sm-6">
@@ -80,5 +83,5 @@
 
 <div class="modal-footer">
     <button class="btn btn-link" ng-click="$dismiss()">Cancel</button>
-    <button type="submit" class="btn btn-primary" ng-click="itemEdit.saveItem()" ng-disabled="form.$invalid">Save</button>
+    <button type="submit" class="btn btn-primary" ng-click="itemEdit.saveItem()">Save</button>
 </div>

@@ -13,10 +13,11 @@
             '_',
             '$modalInstance',
             '$scope',
+            '$timeout',
             'FgtConstant',
             'FgtService',
             'Upload',
-            function(_, $modalInstance, $scope, FgtConstant, FgtService, Upload) {
+            function(_, $modalInstance, $scope, $timeout, FgtConstant, FgtService, Upload) {
                 var that = this,
                     deletedImages = [];
 
@@ -34,6 +35,9 @@
                         height: 500
                     }
                 };
+                this.uploader = {
+                    $invalid: false
+                };
 
                 this.uploadFiles = function(files, invalidFiles) {
                     delete that.uploadError;
@@ -50,6 +54,7 @@
                             .then(
                                 function(response) {
                                     that.item.images.push(response.data);
+                                    that.uploader.$invalid = false;
                                 },
                                 function(error) {
                                     file.error = error;
@@ -66,17 +71,32 @@
                 this.deleteImage = function(index, image) {
                     deletedImages.push(image);
                     that.item.images.splice(index, 1);
+
+                    that.uploader.$invalid = _.isEmpty(that.item.images);
                 };
 
                 this.saveItem = function() {
-                    _.forEach(deletedImages, function(deletedImage) {
-                        FgtService.deleteImage(deletedImage);
-                    });
-
-                    FgtService.saveItem(that.item)
-                        .then(function(result) {
-                            $modalInstance.close(result);
+                    if ($scope.form.$invalid || _.isEmpty(that.item.images)) {
+                        _.forEach($scope.form.$error, function(controls) {
+                            _.forEach(controls, function(control) {
+                                control.$pristine = false;
+                            });
                         });
+                        that.uploader.$invalid = _.isEmpty(that.item.images);
+
+                        $timeout(function() {
+                            $scope.$apply();
+                        });
+                    } else {
+                        _.forEach(deletedImages, function(deletedImage) {
+                            FgtService.deleteImage(deletedImage);
+                        });
+
+                        FgtService.saveItem(that.item)
+                            .then(function(result) {
+                                $modalInstance.close(result);
+                            });
+                    }
                 };
             }
         ]);

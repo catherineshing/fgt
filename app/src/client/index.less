@@ -1,3 +1,5 @@
+@import (reference) "./../../lib/bootstrap/less/variables.less";
+
 @fgt-green: rgb(83, 122, 58);
 
 .fgt {
@@ -163,6 +165,10 @@
         .uploader {
             border: 1px dashed #ccc;
 
+            &.danger {
+                border-color: @state-danger-text;
+            }
+
             .drop-area {
                 padding: 10px;
                 min-height: 100px;
@@ -195,6 +201,10 @@
                 right: 6px;
                 color: #fff;
             }
+        }
+
+        .uploader-error {
+            color: @state-danger-text;
         }
     }
 }
