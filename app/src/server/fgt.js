@@ -107,7 +107,7 @@ function saveItem(item) {
 
     _.forEach(item.images, function(image, index) {
         if (_.includes(image, '/tmp/')) {
-            fileIndex = index + 1;
+            fileIndex = index;
             extension = image.split('.').pop();
             filename = baseFilename + '-' + (fileIndex) + '.' + extension;
 

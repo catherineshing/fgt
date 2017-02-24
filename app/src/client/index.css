@@ -53,7 +53,8 @@
   color: #999;
 }
 .fgt .products .nav-pills > li,
-.fgt .products .dropdown-menu > li {
+.fgt .products .dropdown-menu > li,
+.fgt .products .pager > li {
   cursor: pointer;
 }
 .fgt .products .dropdown {

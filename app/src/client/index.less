@@ -1,3 +1,5 @@
+@fgt-green: rgb(83, 122, 58);
+
 .fgt {
     .header {
         padding-bottom: 15px;
@@ -11,7 +13,7 @@
         }
 
         .info {
-            color: rgb(83, 122, 58);
+            color: @fgt-green;
         }
     }
 
@@ -73,7 +75,7 @@
     .products {
         .nav-pills > li.active > a,
         .dropdown-menu > li.active > a {
-            background-color: rgb(83, 122, 58);
+            background-color: @fgt-green;
 
             .text-muted {
                 color: #999;
@@ -81,7 +83,8 @@
         }
 
         .nav-pills > li,
-        .dropdown-menu > li {
+        .dropdown-menu > li,
+        .pager > li {
             cursor: pointer;
         }
 
@@ -129,7 +132,7 @@
         }
 
         &.active {
-            border-color: rgb(83, 122, 58);
+            border-color: @fgt-green;
         }
     }
 

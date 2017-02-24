@@ -28,6 +28,10 @@
                     </div>
                 </div>
             </div>
+            <ul class="pager">
+                <li class="previous" ng-show="products.hasPrev"><a ng-click="products.getPrevPage()">&larr; Previous</a></li>
+                <li class="next" ng-show="products.hasNext"><a ng-click="products.getNextPage()">&rarr; Next</a></li>
+            </ul>
         </div>
     </div>
 </div>

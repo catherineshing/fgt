@@ -3,8 +3,8 @@
 
     angular.module('fgt.login', [
         'ngCookies',
-        'ui.bootstrap',
         'smart-table',
+        'ui.bootstrap',
         'fgt.fgt-service',
         'fgt.item-edit'
     ])

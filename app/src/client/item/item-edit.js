@@ -25,8 +25,14 @@
 
                 this.options = {
                     accept: 'image/*',
+                    maxFiles: 10,
                     maxSize: '20MB',
-                    multiple: true
+                    multiple: true,
+                    allowDir: true,
+                    resize: {
+                        width: 500,
+                        height: 500
+                    }
                 };
 
                 this.uploadFiles = function(files, invalidFiles) {
