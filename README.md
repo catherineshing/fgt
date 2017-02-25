@@ -7,8 +7,9 @@ npm install -g ejs
 npm install -g bower
 
 git clone https://github.com/catherineshing/fgt
-cd ctc
+cd fgt
 npm install
 bower install
+mkdir app/src/server/images/tmp
 
 nodemon app/app.js

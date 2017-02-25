@@ -19,6 +19,7 @@
             'Upload',
             function(_, $modalInstance, $scope, $timeout, FgtConstant, FgtService, Upload) {
                 var that = this,
+                    uploadedImages = [],
                     deletedImages = [];
 
                 this.item = $scope.item;
@@ -27,7 +28,7 @@
                 this.options = {
                     accept: 'image/*',
                     maxFiles: 10,
-                    maxSize: '20MB',
+                    maxSize: '8MB',
                     multiple: true,
                     allowDir: true,
                     resize: {
@@ -53,7 +54,9 @@
                             })
                             .then(
                                 function(response) {
+                                    uploadedImages.push(response.data);
                                     that.item.images.push(response.data);
+
                                     that.uploader.$invalid = false;
                                 },
                                 function(error) {
@@ -73,6 +76,14 @@
                     that.item.images.splice(index, 1);
 
                     that.uploader.$invalid = _.isEmpty(that.item.images);
+                };
+
+                this.cancel = function() {
+                    _.forEach(uploadedImages, function(uploadedImage) {
+                        FgtService.deleteImage(uploadedImage);
+                    });
+
+                    $modalInstance.dismiss();
                 };
 
                 this.saveItem = function() {

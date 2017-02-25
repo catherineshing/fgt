@@ -47,7 +47,9 @@
 
                 this.getCategory = function(category) {
                     that.category = category;
+
                     args.category = category;
+                    args.start = 0;
 
                     getItems();
                 };
