@@ -10,6 +10,7 @@ git clone https://github.com/catherineshing/fgt
 cd fgt
 npm install
 bower install
-mkdir app/src/server/images/tmp
+
+unzip fgt.zip
 
 nodemon app/app.js

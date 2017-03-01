@@ -11,6 +11,7 @@
                 'Placemats',
                 'Shower Caps',
                 'Shower Curtains',
+                'Shower Liners',
                 'Tablecloths',
                 'Umbrellas',
                 'Other'

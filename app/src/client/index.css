@@ -69,7 +69,7 @@
   height: 170px;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center top;
 }
 .fgt .products .preview .caption {
   padding: 3px 9px;

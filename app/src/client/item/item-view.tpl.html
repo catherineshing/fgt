@@ -28,7 +28,7 @@
                 <div class="col-xs-4 col-sm-3"><label>Features:</label></div>
                 <div class="col-xs-8 col-sm-9">
                     <ul class="features">
-                        <li ng-repeat="feature in item.item.features" ng-bind="feature"></li>
+                        <li ng-repeat="feature in item.item.features track by $index" ng-bind="feature"></li>
                     </ul>
                 </div>
             </div>
